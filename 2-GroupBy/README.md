@@ -15,20 +15,21 @@ The GROUP BY clause must appear after the FROM and WHERE clauses, but before the
 
 SQL
 
-`SELECT
-    column1, -- The column(s) you are grouping by
+```
+SELECT
+    column1, -- The column(s) being grouped
     aggregate_function(column2) -- The calculated summary value
 FROM
     table_name
 WHERE
-    condition -- (Optional) Filters individual rows BEFORE grouping
+    condition -- (Optional) Filters individual rows before grouping
 GROUP BY
     column1, column3, ... -- Lists all non-aggregated columns from the SELECT list
 HAVING
-    aggregate_condition -- (Optional) Filters groups AFTER grouping and aggregation
+    aggregate_condition -- (Optional) Filters groups after grouping and aggregation
 ORDER BY
-    column_or_aggregate;`
-
+    column_or_aggregate;
+```
 
  **Key Rules and Requirements 💡**
 
@@ -44,27 +45,31 @@ To find the total amount spent by each customer, you must group the sales data b
 
 SQL
 
-`SELECT
+```
+SELECT
     CustomerID,
     SUM(OrderAmount) AS TotalSpent -- Aggregate function
 FROM
     Orders
 GROUP BY
-    CustomerID;`
+    CustomerID;
+```
 
 **Counting Records in Multiple Groups**
 To find the number of employees in each department and city, you group by both columns.
 
 SQL
 
-`SELECT
+```
+SELECT
     Department,
     City,
     COUNT(*) AS EmployeeCount -- Aggregate function
 FROM
     Employees
 GROUP BY
-    Department, City;`
+    Department, City;
+```
 
 
 **Filtering Groups with HAVING**
@@ -72,7 +77,8 @@ NOTE: The WHERE clause cannot filter on the results of an aggregate function. To
 
 SQL
 
-`SELECT
+```
+SELECT
     Region,
     AVG(Sales) AS AverageSales
 FROM
@@ -80,4 +86,5 @@ FROM
 GROUP BY
     Region
 HAVING
-    AVG(Sales) > 50000; `
+    AVG(Sales) > 50000;
+```
