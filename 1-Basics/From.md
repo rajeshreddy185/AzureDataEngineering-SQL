@@ -9,7 +9,9 @@ The basic structure places the FROM clause immediately after the SELECT clause:
 
 SQL
 
+```
 SELECT column1, column2, ...
 FROM table_name;
+```
 table_name: The name of the table that contains the columns you are selecting.
 

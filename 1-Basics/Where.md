@@ -11,6 +11,9 @@ SELECT (Data Retrieval): Filters which rows are returned to the user.
 
 SQL
 
-`SELECT CustomerName, City
+```
+SELECT CustomerName, City
 FROM Customers
-WHERE City = 'London'; `-- Only rows where the City column is 'London' are returned.
+WHERE City = 'London'; 
+```
+Only rows where the City column is 'London' are returned.

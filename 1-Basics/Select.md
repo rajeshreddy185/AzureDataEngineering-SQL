@@ -7,8 +7,10 @@ The fundamental structure of a SELECT query is:
 
 SQL
 
+```
 SELECT column1, column2, ...
 FROM table_name;
+```
 SELECT: Specifies the columns you want to view.
 
 FROM: Identifies the table(s) where the data resides.
@@ -16,6 +18,6 @@ FROM: Identifies the table(s) where the data resides.
 Syntax Variant	Purpose	Example
 | Syntax Variant | Purpose | Example |
 |----------------|---------|---------|
-| SELECT * | Selects all columns from the specified table. | `SELECT * FROM Customers;` |
-| SELECT DISTINCT | Returns only unique (non-duplicate) values from the specified column(s). | `SELECT DISTINCT City FROM Customers;` |
+| SELECT * | Selects all columns from the specified table. | ```SELECT * FROM Customers;``` |
+| SELECT DISTINCT | Returns only unique (non-duplicate) values from the specified column(s). | ```SELECT DISTINCT City FROM Customers;``` |
 Export to Sheets
