@@ -1,3 +1,5 @@
+** Operators **
+
 Operators Used in the WHERE Clause
 The WHERE clause relies on operators to define conditions.
 

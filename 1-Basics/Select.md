@@ -1,3 +1,5 @@
+** SELECT **
+
 The SELECT statement is the most frequently used and fundamental command in SQL, as it is used to retrieve data from one or more tables in a database. It is the only command that belongs to the DQL (Data Query Language) category.
 
 The power of SELECT comes from its ability to be combined with various clauses to filter, sort, group, and combine the returned data.
