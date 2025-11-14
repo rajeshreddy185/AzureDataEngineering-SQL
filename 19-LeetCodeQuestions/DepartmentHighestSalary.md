@@ -78,17 +78,28 @@ GROUP BY
 ```
 
 
-```
+```sql
 
-SELECT  d.departmentId as Department, ranked.name as Employee, ranked.salary as Salary
-(
-SELECT id, name, salary, departmentId,
-    RANK() OVER (PARTITION BY departmentId ORDER BY salary DESC ) as salary_rn
-FROM 
-    Employee
-) as ranked
-join Department as d on d.id= ranked.departmentId
-WHERE salary_rn=1;
+
+SELECT
+    d.departmentId as Department,
+    ranked.name as Employee,
+    ranked.salary as Salary
+FROM
+    (
+        SELECT
+            id,
+            name,
+            salary,
+            departmentId,
+            RANK() OVER (PARTITION BY departmentId ORDER BY salary DESC) as salary_rn
+        FROM
+            Employee
+    ) as ranked
+JOIN
+    Department as d ON d.id = ranked.departmentId
+WHERE
+    salary_rn = 1;
 
 ```
 
