@@ -1,11 +1,10 @@
 Table: Logs
 
-+-------------+---------+
 | Column Name | Type    |
-+-------------+---------+
+|-------------|---------|
 | id          | int     |
 | num         | varchar |
-+-------------+---------+
+
 In SQL, id is the primary key for this table.
 id is an autoincrement column starting from 1.
 
@@ -17,9 +16,8 @@ Example 1:
 
 Input: 
 Logs table:
-+----+-----+
 | id | num |
-+----+-----+
+|----|-----|
 | 1  | 1   |
 | 2  | 1   |
 | 3  | 1   |
@@ -27,15 +25,12 @@ Logs table:
 | 5  | 1   |
 | 6  | 2   |
 | 7  | 2   |
-+----+-----+
-
 
 Output: 
-+-----------------+
 | ConsecutiveNums |
-+-----------------+
+|-----------------|
 | 1               |
-+-----------------+
+
 Explanation: 1 is the only number that appears consecutively for at least three times.
 
 ##### STANDARD SELF JOIN
@@ -63,7 +58,7 @@ WITH ConsecutiveChecks AS (
         Logs
   )
 
-SELECT DISTICT num
+SELECT DISTINCT num
 FROM ConsecutiveChecks
 WHERE num=PrevNum 
     AND PrevNum=PrevtoPrevNum
@@ -115,9 +110,8 @@ HAVING COUNT(*) >= 3;
 ```
 
 Logs table:
-+----+-----+----+-----+
 | id | num | id | num |
-+----+-----+----+-----+
+|----|-----|----|-----|
 | 1  | 1   | 1  | 1   |
 | 2  | 1   | 2  | 2   |
 | 3  | 1   | 3  | 3   |
@@ -125,8 +119,3 @@ Logs table:
 | 5  | 1   | 5  | 4   |
 | 6  | 2   | 6  | 2   |
 | 7  | 2   | 7  | 3   |
-+----+-----+----+-----+
-
-
-
-
