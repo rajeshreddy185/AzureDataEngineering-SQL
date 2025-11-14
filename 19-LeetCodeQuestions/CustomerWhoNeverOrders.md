@@ -1,81 +1,81 @@
-Table: Customers
+# Customers Who Never Order
 
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| id          | int     |
-| name        | varchar |
-+-------------+---------+
-id is the primary key (column with unique values) for this table.
-Each row of this table indicates the ID and name of a customer.
-
-Table: Orders
-
-+-------------+------+
-| Column Name | Type |
-+-------------+------+
-| id          | int  |
-| customerId  | int  |
-+-------------+------+
-id is the primary key (column with unique values) for this table.
-customerId is a foreign key (reference columns) of the ID from the Customers table.
-Each row of this table indicates the ID of an order and the ID of the customer who ordered it.
-
+## Problem Statement
 Write a solution to find all customers who never order anything.
-Return the result table in any order.
-The result format is in the following example.
 
-Example 1:
+### Customers Table
 
-Input: 
-Customers table:
-+----+-------+
+| Column Name | Type    | Description |
+|-------------|---------|-------------|
+| id          | int     | Primary key |
+| name        | varchar | Customer name|
+
+### Orders Table
+
+| Column Name | Type    | Description |
+|-------------|---------|-------------|
+| id          | int     | Primary key |
+| customerId  | int     | Foreign key referencing Customers(id) |
+
+## Example
+
+### Input
+
+**Customers Table:**
 | id | name  |
-+----+-------+
+|----|-------|
 | 1  | Joe   |
 | 2  | Henry |
 | 3  | Sam   |
 | 4  | Max   |
-+----+-------+
-Orders table:
-+----+------------+
+
+**Orders Table:**
 | id | customerId |
-+----+------------+
+|----|------------|
 | 1  | 3          |
 | 2  | 1          |
-+----+------------+
-Output: 
-+-----------+
+
+### Expected Output
 | Customers |
-+-----------+
+|-----------|
 | Henry     |
 | Max       |
-+-----------+
 
+## Solution
 
-
-```commandline
-
-SELECT c.name FROM Customers AS c  WHERE c.id NOT IN (SELECT o.customerId FROM Orders as o)
-
-```
-```commandline
-
-SELECT c.name 
-    FROM Customers AS c 
-    LEFT JOIN Orders AS o
-    ON c.id = o.customerId
-   WHERE 
-      o.customerId IS NULL;
-
+### Using LEFT JOIN (Recommended)
+```sql
+SELECT c.name AS Customers
+FROM Customers c
+LEFT JOIN Orders o ON c.id = o.customerId
+WHERE o.id IS NULL;
 ```
 
-```commandline
+### Using NOT IN
+```sql
+SELECT name AS Customers
+FROM Customers
+WHERE id NOT IN (
+    SELECT customerId 
+    FROM Orders
+    WHERE customerId IS NOT NULL
+);
+```
 
-SELECT c.name FROM Customers AS c WHERE NOT EXISTS (
+### Using NOT EXISTS
+```sql
+SELECT name AS Customers
+FROM Customers c
+WHERE NOT EXISTS (
     SELECT 1 
-    FROM Orders as o
-    WHERE o.customerId=c.id
-)
-
+    FROM Orders o 
+    WHERE o.customerId = c.id
+);
 ```
+
+### Explanation
+1. **LEFT JOIN approach**: Joins the Customers table with the Orders table and filters for customers with no matching orders (where o.id IS NULL).
+2. **NOT IN approach**: Selects customers whose IDs don't appear in the list of customer IDs who have placed orders.
+3. **NOT EXISTS approach**: Uses a correlated subquery to find customers for whom no corresponding order exists.
+
+The LEFT JOIN approach is generally the most efficient for this type of query in most database systems.
