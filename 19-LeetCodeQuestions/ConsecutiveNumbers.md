@@ -16,6 +16,7 @@ Example 1:
 
 Input: 
 Logs table:
+
 | id | num |
 |----|-----|
 | 1  | 1   |
@@ -27,6 +28,7 @@ Logs table:
 | 7  | 2   |
 
 Output: 
+
 | ConsecutiveNums |
 |-----------------|
 | 1               |
@@ -110,6 +112,7 @@ HAVING COUNT(*) >= 3;
 ```
 
 Logs table:
+
 | id | num | id | num |
 |----|-----|----|-----|
 | 1  | 1   | 1  | 1   |
