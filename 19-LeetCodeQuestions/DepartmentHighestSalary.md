@@ -31,6 +31,7 @@ Example 1:
 
 Input: 
 Employee table:
+
 | id | name  | salary | departmentId |
 |----|-------|--------|--------------|
 | 1  | Joe   | 70000  | 1            |
@@ -40,12 +41,14 @@ Employee table:
 | 5  | Max   | 90000  | 1            |
 
 Department table:
+
 | id | name  |
 |----|-------|
 | 1  | IT    |
 | 2  | Sales |
 
 Output: 
+
 | Department | Employee | Salary |
 |------------|----------|--------|
 | IT         | Jim      | 90000  |

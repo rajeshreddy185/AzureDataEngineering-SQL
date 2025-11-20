@@ -16,6 +16,7 @@ Example 1:
 
 Input: 
 Employee table:
+
 | id | salary |
 |----|--------|
 | 1  | 100    |
@@ -24,6 +25,7 @@ Employee table:
 
 n = 2
 Output: 
+
 | getNthHighestSalary(2) |
 |------------------------|
 | 200                    |
@@ -31,6 +33,7 @@ Output:
 Example 2:
 
 Input: 
+
 Employee table:
 | id | salary |
 |----|--------|
@@ -38,6 +41,7 @@ Employee table:
 
 n = 2
 Output: 
+
 | getNthHighestSalary(2) |
 |------------------------|
 | null                   |

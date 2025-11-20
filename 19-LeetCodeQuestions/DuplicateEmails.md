@@ -18,6 +18,7 @@ Example 1:
 
 Input: 
 Person table:
+
 | id | email   |
 |----|---------|
 | 1  | a@b.com |
@@ -25,6 +26,7 @@ Person table:
 | 3  | a@b.com |
 
 Output: 
+
 | Email   |
 |---------|
 | a@b.com |
